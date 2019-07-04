@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<jsp:include page="/GetProduitHome"/>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
 <html lang="zxx">
@@ -534,11 +533,11 @@
 							<h3 class="heading-tittle text-center font-italic">New Brand Mobiles</h3>
 							<div class="row">
                                                             
-								<c:forEach var="produit" items="${requestScope['produits']}">
+								<c:forEach var="produit" items="${produitMobile}">
                                 <div class="col-md-4 product-men mt-5">
                                     <div class="men-pro-item simpleCart_shelfItem">
                                         <div class="men-thumb-item text-center">
-                                            <img src="${produit.image}" alt="">
+                                            <img src="images/${produit.produitImg}" alt="">
                                             <div class="men-cart-pro">
                                                 <div class="inner-men-cart-pro">
                                                     <a href="single.html" class="link-product-add-cart">Quick View</a>

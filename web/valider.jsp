@@ -1,4 +1,4 @@
-<%@page import="Entity.Utilisateur"%>
+<%@page import="classBdd.Produit"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

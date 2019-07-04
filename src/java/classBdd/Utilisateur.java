@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Entity;
+package classBdd;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -52,8 +52,14 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Utilisateur.findBySiret", query = "SELECT u FROM Utilisateur u WHERE u.siret = :siret"),
     @NamedQuery(name = "Utilisateur.findByCptValide", query = "SELECT u FROM Utilisateur u WHERE u.cptValide = :cptValide"),
     @NamedQuery(name = "Utilisateur.findByScoreQualite", query = "SELECT u FROM Utilisateur u WHERE u.scoreQualite = :scoreQualite"),
+    @NamedQuery(name = "Utilisateur.connexion", query = "SELECT u FROM Utilisateur u WHERE u.email = :email and u.pwd = :pwd"),
     @NamedQuery(name = "Utilisateur.findByTypeUtilisateur", query = "SELECT u FROM Utilisateur u WHERE u.typeUtilisateur = :typeUtilisateur")})
 public class Utilisateur implements Serializable {
+
+    @Column(name = "code_postal")
+    private Integer codePostal;
+    @Column(name = "cpt_bloque")
+    private Boolean cptBloque;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -86,9 +92,6 @@ public class Utilisateur implements Serializable {
     @Column(name = "nom_rue")
     private String nomRue;
     @Basic(optional = false)
-    @Column(name = "code_postal")
-    private int codePostal;
-    @Basic(optional = false)
     @Column(name = "pays")
     private String pays;
     @Basic(optional = false)
@@ -100,9 +103,6 @@ public class Utilisateur implements Serializable {
     @Basic(optional = false)
     @Column(name = "clef_sb")
     private String clefSb;
-    @Basic(optional = false)
-    @Column(name = "cpt_bloque")
-    private boolean cptBloque;
     @Column(name = "num_rue_liv")
     private String numRueLiv;
     @Column(name = "nom_rue_liv")
@@ -409,6 +409,18 @@ public class Utilisateur implements Serializable {
     @Override
     public String toString() {
         return "Entity.Utilisateur[ id=" + id + " ]";
+    }
+
+ 
+
+    public void setCodePostal(Integer codePostal) {
+        this.codePostal = codePostal;
+    }
+
+  
+
+    public void setCptBloque(Boolean cptBloque) {
+        this.cptBloque = cptBloque;
     }
     
 }

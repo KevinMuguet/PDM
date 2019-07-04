@@ -29,12 +29,12 @@ public class GetProduitHome extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             int size = wsProduit.getAllProduit().size();
             
-            //RequestDispatcher rd = request.getRequestDispatcher("/valider.jsp") ;
+            RequestDispatcher rd = request.getRequestDispatcher("/home.jsp") ;
        
             request.setAttribute("size",size) ;
 
-            request.setAttribute("produits",wsProduit.getAllProduit()) ;
-            //rd.forward(request, response) ;
+            request.setAttribute("produitMobile",wsProduit.getAllProduitByCat(4));
+            rd.forward(request, response) ;
 
         
     }

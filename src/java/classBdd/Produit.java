@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Entity;
+package classBdd;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -40,6 +40,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Produit.findByProduitImg", query = "SELECT p FROM Produit p WHERE p.produitImg = :produitImg"),
     @NamedQuery(name = "Produit.findByQteStock", query = "SELECT p FROM Produit p WHERE p.qteStock = :qteStock"),
     @NamedQuery(name = "Produit.findByEnLigne", query = "SELECT p FROM Produit p WHERE p.enLigne = :enLigne"),
+    @NamedQuery(name = "Produit.findByCat", query = "SELECT p FROM Produit p WHERE p.idCategorie.idCategorie = :idCategorie"),
     @NamedQuery(name = "Produit.findByTypeProduit", query = "SELECT p FROM Produit p WHERE p.typeProduit = :typeProduit")})
 public class Produit implements Serializable {
 

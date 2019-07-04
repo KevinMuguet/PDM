@@ -25,9 +25,16 @@ public class Produit {
      
     
     @WebMethod(operationName = "GetAllProduit")
-    public List<Entity.Produit> getAllProduit() {
+    public List<classBdd.Produit> getAllProduit() {
         
         return em.createNamedQuery("Produit.findAll").getResultList();
+    
+    }
+    
+    @WebMethod(operationName = "GetAllProduitByCat")
+    public List<classBdd.Produit> getAllProduitByCat(@WebParam(name = "id") Integer id) {
+        
+        return em.createNamedQuery("Produit.findByCat").setParameter("idCategorie", id).getResultList();
     
     }
 }
