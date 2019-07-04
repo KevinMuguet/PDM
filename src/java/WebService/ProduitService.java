@@ -67,38 +67,14 @@ public class ProduitService {
         newMarque.setLibelleMarque(marque);
         em.persist(newMarque);
         utx.commit();
-        em.close(); 
-        entityManagerFactory.close();
-        }catch(NullPointerException | IllegalStateException | SecurityException | HeuristicMixedException | HeuristicRollbackException | NotSupportedException | RollbackException | SystemException e){}
+        //em.close(); 
+        //entityManagerFactory.close();
+        }catch(NullPointerException | IllegalStateException | SecurityException | HeuristicMixedException | HeuristicRollbackException | NotSupportedException | RollbackException | SystemException e)
+        {
+            e.printStackTrace();
+        }
         return true;
-    }
-    @Resource
-    UserTransaction utx2;
-    
-    @WebMethod(operationName = "insertUser")
-    public boolean insertUser (@WebParam(name = "name") String nom, @WebParam(name = "pwd") String pwd, @WebParam(name = "email") String email) {
-        
-        try {
-            utx2.begin();
-            classBdd.Utilisateur newUser = new classBdd.Utilisateur();
-            
-            newUser.setNom(nom);
-            newUser.setPwd(pwd);
-            newUser.setLogin(email);
-            newUser.setTypeUtilisateur(email);
-            em.persist(newUser);
-            utx2.commit();
-            em.close(); 
-            entityManagerFactory.close();
-            
-            
-        }catch(NullPointerException | IllegalStateException | SecurityException | HeuristicMixedException | HeuristicRollbackException | NotSupportedException | RollbackException | SystemException e){}
-        return true;
-            
-        
-        
-    }
-    
+    }  
     
     
 }

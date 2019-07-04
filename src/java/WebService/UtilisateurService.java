@@ -7,6 +7,7 @@ package WebService;
 
 import classBdd.Utilisateur;
 import javax.annotation.Resource;
+import javax.ejb.Stateless;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -20,14 +21,19 @@ import javax.transaction.HeuristicRollbackException;
 import javax.transaction.NotSupportedException;
 import javax.transaction.RollbackException;
 import javax.transaction.SystemException;
+import javax.transaction.Transactional;
 import javax.transaction.UserTransaction;
 
 /**
  *
  * @author Joker
  */
+
 @WebService(serviceName = "Utilisateur")
 public class UtilisateurService {
+    
+    @Resource
+    UserTransaction utx2;
     
     EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("AmazonProjectPU");
     
@@ -46,31 +52,30 @@ public class UtilisateurService {
             return false;
         }
     }
-        @Resource
-    UserTransaction utx2;
+    
     
     @WebMethod(operationName = "insertUser")
-    public boolean insertUser (@WebParam(name = "name") String nom, @WebParam(name = "pwd") String pwd, @WebParam(name = "email") String email, @WebParam(name = "typeUser") String typeUser) {
+    public boolean insertUser () {
         
         try {
             utx2.begin();
             classBdd.Utilisateur newUser = new classBdd.Utilisateur();
             
-            newUser.setNom(nom);
-            newUser.setPwd(pwd);
-            newUser.setEmail(email);
-            newUser.setLogin(email);
-            newUser.setTypeUtilisateur(typeUser);
-            newUser.setId(50000);
+            newUser.setNom("Nom test");
+            newUser.setPwd("pwd");
+            newUser.setEmail("email");
+            newUser.setLogin("login");
+            newUser.setTypeUtilisateur("supadmin");
             emUtilisateur.persist(newUser);
             utx2.commit();
-            emUtilisateur.close(); 
-            entityManagerFactory.close();
+            //emUtilisateur.close(); 
+            //entityManagerFactory.close();
             
-            
-        }catch(NullPointerException | IllegalStateException | SecurityException | HeuristicMixedException | HeuristicRollbackException | NotSupportedException | RollbackException | SystemException e){}
+            return true;
+        }catch(Exception e){
+         e.printStackTrace();
+        }
         return true;
-        
     }
     
 }

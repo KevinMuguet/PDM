@@ -71,7 +71,7 @@
 								<i class="fas fa-sign-in-alt mr-2"></i> Se connecter </a>
 						</li>
 						<li class="text-center text-white">
-							<a href="#" data-toggle="modal" data-target="#exampleModal2" class="text-white">
+							<a href="<%=request.getContextPath()%>/inscription.jsp" class="text-white">
 								<i class="fas fa-sign-out-alt mr-2"></i>S'inscrire </a>
 						</li>
 					</ul>

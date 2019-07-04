@@ -60,7 +60,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form action="#" method="post">
+					<form action="<%=request.getContextPath()%>/InscriptionServlet" method="POST">
 						<div class="form-group">
 							<label class="col-form-label">Your Name</label>
 							<input type="text" class="form-control" placeholder=" " name="Name" required="">
@@ -77,6 +77,15 @@
 							<label class="col-form-label">Confirm Password</label>
 							<input type="password" class="form-control" placeholder=" " name="Confirm Password" id="password2" required="">
 						</div>
+                                                <div class="form-group">
+							<label class="col-form-label">Confirm Password</label>
+							<SELECT name="typeUser" size="1">
+                                                            <OPTION value="Client">Client
+                                                            <OPTION value="Client">Forunisseur
+                                                            <OPTION value="Administrateur">Administrateur
+                                                            </SELECT>
+						</div>
+                                                
 						<div class="right-w3l">
 							<input type="submit" class="form-control" value="Register">
 						</div>
