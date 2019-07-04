@@ -17,9 +17,9 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Joker
  */
-public class Connexion extends HttpServlet {
+public class ConnexionServlet extends HttpServlet {
     
-        WebService.Utilisateur wsUtilisateur = new WebService.Utilisateur();
+        WebService.UtilisateurService wsUtilisateur = new WebService.UtilisateurService();
 
 
     @Override
@@ -28,14 +28,20 @@ public class Connexion extends HttpServlet {
          // permet de décoder les paramètres en UTF-8
         request.setCharacterEncoding("UTF-8") ;
 
-        RequestDispatcher rd = request.getRequestDispatcher("/valider.jsp") ;
-
         String login = request.getParameter("Email") ;
         String Password = request.getParameter("Password") ;
+        
+        boolean connexionSuccess = wsUtilisateur.connexionUser(login, Password);
+        request.setAttribute("connexionSuccess",connexionSuccess);
+        
+        if(connexionSuccess){
+            RequestDispatcher rd = request.getRequestDispatcher("/home.jsp") ;
+            rd.forward(request, response) ;
+        }else{
+            RequestDispatcher rd = request.getRequestDispatcher("/connexion.jsp") ;
+            rd.forward(request, response) ;
+        }
 
-        request.setAttribute("connexionSuccess",wsUtilisateur.connexionUser(login, Password)) ;
-
-        rd.forward(request, response) ;
     }
 
 }

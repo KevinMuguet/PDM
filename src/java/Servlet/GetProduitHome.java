@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class GetProduitHome extends HttpServlet {
 
-    WebService.Produit wsProduit = new WebService.Produit();
+    WebService.ProduitService wsProduit = new WebService.ProduitService();
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

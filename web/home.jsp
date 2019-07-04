@@ -67,7 +67,7 @@
 							<i class="fas fa-phone mr-2"></i> +13564887899
 						</li>
 						<li class="text-center border-right text-white">
-							<a href="#" data-toggle="modal" data-target="#exampleModal" class="text-white">
+							<a href="<%=request.getContextPath()%>/connexion.jsp" class="text-white">
 								<i class="fas fa-sign-in-alt mr-2"></i> Se connecter </a>
 						</li>
 						<li class="text-center text-white">
@@ -115,31 +115,7 @@
 					</button>
 				</div>     
                                                 
-				<div class="modal-body">
-					<form action="<%=request.getContextPath()%>/ConnexionServlet" method="POST">
-						<div class="form-group">
-							<label class="col-form-label">Username</label>
-							<input type="text" class="form-control" placeholder=" " name="login" required="">
-						</div>
-						<div class="form-group">
-							<label class="col-form-label">Password</label>
-                                                        <input type="password" class="form-control" placeholder=" " name="Password" required="">
-						</div>
-						<div class="right-w3l">
-							<input type="submit" class="form-control" value="Log in">
-						</div>
-						<div class="sub-w3l">
-							<div class="custom-control custom-checkbox mr-sm-2">
-								<input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-								<label class="custom-control-label" for="customControlAutosizing">Remember me?</label>
-							</div>
-						</div>
-						<p class="text-center dont-do mt-3">Don't have an account?
-							<a href="#" data-toggle="modal" data-target="#exampleModal2">
-								Register Now</a>
-						</p>
-					</form>
-				</div>
+				
 			</div>
 		</div>
 	</div>
