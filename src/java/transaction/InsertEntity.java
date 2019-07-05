@@ -15,16 +15,10 @@ import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.transaction.UserTransaction;
 
-/**
- *
- * @author Joker
- */
-@Stateless
+
 public class InsertEntity {
    
     EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("AmazonProjectPU");
-   
-    @PersistenceContext
     EntityManager em = entityManagerFactory.createEntityManager();
 
     @Resource    
@@ -35,18 +29,18 @@ public class InsertEntity {
    
 
    public boolean createUser(){
-   
         try {
-            utx.begin();
+            
             Utilisateur newUser = new Utilisateur();
             
-            newUser.setNom("Hitema10");
+            newUser.setNom("Hitema11");
             newUser.setPwd("pwd");
             newUser.setEmail("email");
             newUser.setLogin("login");
             newUser.setTypeUtilisateur("supadmin");
+            em.getTransaction().begin();
             em.persist(newUser);
-            utx.commit();
+            em.getTransaction().commit();
             
             
         }catch(Exception e){

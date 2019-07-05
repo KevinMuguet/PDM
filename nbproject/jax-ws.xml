@@ -7,9 +7,90 @@
     <service name="ProduitService">
       <implementation-class>WebService.ProduitService</implementation-class>
     </service>
+    <service name="AddInDataBase">
+      <implementation-class>WebService.AddInDataBase</implementation-class>
+    </service>
     <service name="NewWebService">
       <implementation-class>WebService.NewWebService</implementation-class>
     </service>
+    <service name="ToolWebService">
+      <implementation-class>WebService.ToolWebService</implementation-class>
+    </service>
   </services>
-  <clients/>
+  <clients>
+    <client name="InsertUserService">
+      <wsdl-url>http://localhost:8080/NewWebService/InsertUserService?WSDL</wsdl-url>
+      <local-wsdl-file>localhost_8080/NewWebService/InsertUserService.wsdl</local-wsdl-file>
+      <package-name forceReplace="true">webServiceClient.Utilisateur</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <use-dispatch>true</use-dispatch>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>fork</wsimport-option-name>
+          <wsimport-option-value>false</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://localhost:8080/NewWebService/InsertUserService?WSDL</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>package</wsimport-option-name>
+          <wsimport-option-value>webServiceClient.Utilisateur</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
+    <client name="AddInDataBase">
+      <wsdl-url>http://localhost:8080/AddInDataBase/AddInDataBase?WSDL</wsdl-url>
+      <local-wsdl-file>localhost_8080/AddInDataBase/AddInDataBase.wsdl</local-wsdl-file>
+      <package-name forceReplace="true">WebServiceClient.Utilisateur</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <use-dispatch>true</use-dispatch>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>fork</wsimport-option-name>
+          <wsimport-option-value>false</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://localhost:8080/AddInDataBase/AddInDataBase?WSDL</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>package</wsimport-option-name>
+          <wsimport-option-value>WebServiceClient.Utilisateur</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
+  </clients>
 </jax-ws>

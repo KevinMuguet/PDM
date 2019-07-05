@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/NewWebService/InsertUserService?WSDL" uri="src/conf/xml-resources/web-service-references/InsertUserService/wsdl/localhost_8080/NewWebService/InsertUserService.wsdl"/>
+    <system systemId="http://localhost:8080/NewWebService/InsertUserService?xsd=1" uri="src/conf/xml-resources/web-service-references/InsertUserService/wsdl/localhost_8080/NewWebService/InsertUserService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/AddInDataBase/AddInDataBase?WSDL" uri="src/conf/xml-resources/web-service-references/AddInDataBase/wsdl/localhost_8080/AddInDataBase/AddInDataBase.wsdl"/>
+    <system systemId="http://localhost:8080/AddInDataBase/AddInDataBase?xsd=1" uri="src/conf/xml-resources/web-service-references/AddInDataBase/wsdl/localhost_8080/AddInDataBase/AddInDataBase.xsd_1.xsd"/>
+</catalog>

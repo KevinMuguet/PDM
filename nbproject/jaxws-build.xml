@@ -35,6 +35,14 @@
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </wsgen>
     </target>
+    <target name="wsgen-AddInDataBase" depends="wsgen-init">
+        <copy todir="${build.classes.dir}/META-INF">
+            <fileset dir="${webinf.dir}" includes="wsit-WebService.AddInDataBase.xml"/>
+        </copy>
+        <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" keep="true" genwsdl="true" sei="WebService.AddInDataBase" xendorsed="true">
+            <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
+        </wsgen>
+    </target>
     <target name="wsgen-NewWebService" depends="wsgen-init">
         <copy todir="${build.classes.dir}/META-INF">
             <fileset dir="${webinf.dir}" includes="wsit-WebService.NewWebService.xml"/>
@@ -43,9 +51,61 @@
             <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
         </wsgen>
     </target>
+    <target name="wsgen-ToolWebService" depends="wsgen-init">
+        <copy todir="${build.classes.dir}/META-INF">
+            <fileset dir="${webinf.dir}" includes="wsit-WebService.ToolWebService.xml"/>
+        </copy>
+        <wsgen sourcedestdir="${build.generated.sources.dir}/jax-ws" resourcedestdir="${build.generated.sources.dir}/jax-ws/resources/" destdir="${build.generated.sources.dir}/jax-ws" verbose="true" keep="true" genwsdl="true" sei="WebService.ToolWebService" xendorsed="true">
+            <classpath path="${java.home}/../lib/tools.jar:${build.classes.dir}:${j2ee.platform.wsgen.classpath}:${javac.classpath}"/>
+        </wsgen>
+    </target>
     <!--
                 ===================
                 JAX-WS WSIMPORT SECTION
                 ===================
             -->
+    <target name="wsimport-init" depends="init">
+        <fail if="${wsimport.bad.version}" message="WsImport ant task defined in the classpath ${j2ee.platform.wsimport.classpath} has a serious bug. See http://wiki.netbeans.org/MetroIssue for details."/>
+        <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
+        <property name="j2ee.platform.wsimport.classpath" value="${libs.jaxws21.classpath}"/>
+        <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+            <classpath path="${java.home}/../lib/tools.jar:${j2ee.platform.wsimport.classpath}:${javac.classpath}"/>
+        </taskdef>
+        <condition property="conf-dir" value="${conf.dir}/" else="">
+            <isset property="conf.dir"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-InsertUserService" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/InsertUserService"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/InsertUserService" destdir="${build.generated.dir}/jax-wsCache/InsertUserService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/InsertUserService/wsdl/localhost_8080/NewWebService/InsertUserService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/NewWebService/InsertUserService?WSDL" xnocompile="true" xendorsed="true" package="webServiceClient.Utilisateur">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/InsertUserService/wsdl/localhost_8080/NewWebService/InsertUserService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/InsertUserService"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/InsertUserService">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-InsertUserService" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/webServiceClient/Utilisateur"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/InsertUserService"/>
+    </target>
+    <target name="wsimport-client-AddInDataBase" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/AddInDataBase"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/AddInDataBase" destdir="${build.generated.dir}/jax-wsCache/AddInDataBase" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/AddInDataBase/wsdl/localhost_8080/AddInDataBase/AddInDataBase.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/AddInDataBase/AddInDataBase?WSDL" xnocompile="true" xendorsed="true" package="WebServiceClient.Utilisateur">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/AddInDataBase/wsdl/localhost_8080/AddInDataBase/AddInDataBase.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/AddInDataBase"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/AddInDataBase">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-AddInDataBase" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/WebServiceClient/Utilisateur"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/AddInDataBase"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-InsertUserService, wsimport-client-AddInDataBase"/>
 </project>

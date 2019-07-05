@@ -22,8 +22,7 @@ import transaction.InsertEntity;
  */
 public class InscriptionServlet extends HttpServlet {
 
-    WebService.NewWebService user = new WebService.NewWebService();
-    
+    WebService.AddInDataBase user = new WebService.AddInDataBase();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -34,8 +33,9 @@ public class InscriptionServlet extends HttpServlet {
         String Email = "test@test.fr";
         String Password = "Test";
         String typeUser = "tester";
-        
-        int connexionSuccess = user.hello();
+        InsertEntity insert = new InsertEntity();
+
+         insert.createUser();
         
         /*if(connexionSuccess){
             RequestDispatcher rd = request.getRequestDispatcher("/connexion.jsp") ;

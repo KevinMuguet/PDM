@@ -407,7 +407,7 @@
 						</li>
                                                 <li class="nav-item">
                                                         <!--<a class="nav-link" href="contact.html">Nous joindre</a>-->
-                                                        <button class="nav-link" type="button"> Fichier CSV Client</button>
+                                                        <a href="<%=request.getContextPath()%>/getCsvServlet" target="_blank"><button class="nav-link" type="button"> Fichier CSV Client</button></a>
                                                 </li>
 					</ul>
 				</div>
