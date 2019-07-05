@@ -31,9 +31,9 @@ public class GetProduitHome extends HttpServlet {
             
             RequestDispatcher rd = request.getRequestDispatcher("/home.jsp") ;
        
-            request.setAttribute("size",size) ;
-
-            request.setAttribute("produitMobile",wsProduit.getAllProduitByCat(4));
+            request.setAttribute("produitMobile",wsProduit.getAllProduitByCat(5));
+            request.setAttribute("produitMachine",wsProduit.getAllProduitByCat(7));
+            request.setAttribute("produitElectro",wsProduit.getAllProduitByCat(6));
             rd.forward(request, response) ;
 
         

@@ -24,10 +24,6 @@ import javax.transaction.SystemException;
 import javax.transaction.Transactional;
 import javax.transaction.UserTransaction;
 
-/**
- *
- * @author Joker
- */
 
 @WebService(serviceName = "Utilisateur")
 public class UtilisateurService {
@@ -54,28 +50,6 @@ public class UtilisateurService {
     }
     
     
-    @WebMethod(operationName = "insertUser")
-    public boolean insertUser () {
-        
-        try {
-            utx2.begin();
-            classBdd.Utilisateur newUser = new classBdd.Utilisateur();
-            
-            newUser.setNom("Nom test");
-            newUser.setPwd("pwd");
-            newUser.setEmail("email");
-            newUser.setLogin("login");
-            newUser.setTypeUtilisateur("supadmin");
-            emUtilisateur.persist(newUser);
-            utx2.commit();
-            //emUtilisateur.close(); 
-            //entityManagerFactory.close();
-            
-            return true;
-        }catch(Exception e){
-         e.printStackTrace();
-        }
-        return true;
-    }
+   
     
 }

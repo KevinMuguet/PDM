@@ -7,11 +7,14 @@ package Servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.annotation.Resource;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.transaction.UserTransaction;
+import transaction.InsertEntity;
 
 /**
  *
@@ -19,10 +22,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class InscriptionServlet extends HttpServlet {
 
-     WebService.UtilisateurService addUser = new WebService.UtilisateurService();
+    WebService.NewWebService user = new WebService.NewWebService();
+    
 
-
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
          // permet de décoder les paramètres en UTF-8
@@ -33,7 +35,7 @@ public class InscriptionServlet extends HttpServlet {
         String Password = "Test";
         String typeUser = "tester";
         
-        boolean connexionSuccess = addUser.insertUser();
+        /*boolean connexionSuccess = user.hello();
         
         if(connexionSuccess){
             RequestDispatcher rd = request.getRequestDispatcher("/connexion.jsp") ;
@@ -41,7 +43,7 @@ public class InscriptionServlet extends HttpServlet {
         }else{
             RequestDispatcher rd = request.getRequestDispatcher("/inscription.jsp") ;
             rd.forward(request, response) ;
-        }
+        }*/
 
     }
     

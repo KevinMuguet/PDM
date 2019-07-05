@@ -3,10 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package WebService;
 
+import classBdd.Utilisateur;
 import java.util.List;
 import javax.annotation.Resource;
+import javax.ejb.Stateless;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -29,6 +32,9 @@ import javax.transaction.UserTransaction;
 
 @WebService(serviceName = "Produit")
 public class ProduitService {
+
+    @Resource
+    UserTransaction utx;
     
    
    EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("AmazonProjectPU");
@@ -48,20 +54,17 @@ public class ProduitService {
     public List<classBdd.Produit> getAllProduitByCat(@WebParam(name = "id") Integer id) {
         
         return em.createNamedQuery("Produit.findByCat").setParameter("idCategorie", id).getResultList();
-    
     }
     
     
-    @Resource
-    UserTransaction utx;
-    
     @WebMethod(operationName = "insertBrand")
     public boolean insertBrand (@WebParam(name = "name") String marque) {
-         
-         
+       
+        
         //EntityTransaction transac = em.getTransaction();
         try{
-            utx.begin();
+            
+        utx.begin();
         
         classBdd.Marque newMarque = new classBdd.Marque();
         newMarque.setLibelleMarque(marque);
@@ -75,6 +78,14 @@ public class ProduitService {
         }
         return true;
     }  
+    
+    @WebMethod(operationName = "GetProduitByName")
+    public List<classBdd.Produit> getProduitByName(@WebParam(name = "nom") String nom) {
+        
+        return em.createNamedQuery("Produit.findByNom").setParameter("nom", nom).getResultList();
+    
+    }
+ 
     
     
 }
