@@ -5,8 +5,8 @@
         <property name="serverName" value="mysql-ramdane.alwaysdata.net"/>
         <property name="portNumber" value="3306"/>
         <property name="databaseName" value="ramdane_pdm"/>
-        <property name="User" value="ramdane_kevin"/>
-        <property name="Password" value="kevin123123*"/>
+        <property name="User" value="ramdane"/>
+        <property name="Password" value="azerazer123*"/>
         <property name="URL" value="jdbc:mysql://mysql-ramdane.alwaysdata.net:3306/ramdane_pdm?zeroDateTimeBehavior=convertToNull"/>
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
     </jdbc-connection-pool>

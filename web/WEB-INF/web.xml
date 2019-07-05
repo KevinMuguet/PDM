@@ -16,6 +16,10 @@
         <servlet-name>SearchServlet</servlet-name>
         <servlet-class>Servlet.SearchServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>singleProduitServlet</servlet-name>
+        <servlet-class>Servlet.singleProduitServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnexionServlet</servlet-name>
         <url-pattern>/ConnexionServlet</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>SearchServlet</servlet-name>
         <url-pattern>/SearchServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>singleProduitServlet</servlet-name>
+        <url-pattern>/singleProduitServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -25,7 +25,7 @@
 	<!-- Bootstrap css -->
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 	<!-- Main css -->
-	<link rel="stylesheet" href="css/fontawesome-all.css">
+	<link rel="stylesheet" href="/css/fontawesome-all.css">
 	<!-- Font-Awesome-Icons-CSS -->
 	<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
 	<!-- pop-up-box -->
@@ -41,7 +41,7 @@
 
 </head>
 
-<body style="background-color:#f2f2f2;">
+<body>
 	<!-- top-header -->
 	<div class="agile-main-top">
 		<div class="container-fluid">
@@ -413,40 +413,54 @@
 			</nav>
 		</div>
 	</div>
-	<!--<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">-->
-<div class="row">
-				<!-- product left -->
-				<div class="agileinfo-ads-display col-lg-9">
-					<div class="wrapper">
-						<!-- first section -->
-						<div class="product-sec1 px-sm-4 px-3 py-sm-5  py-3 mb-4">
-							<h3 class="heading-tittle text-center font-italic">veuillez trouver le résultat de la recherche</h3>
-							<div class="row">
-                                                            
-								<c:forEach var="produit" items="${result}">
-                                <div class="col-md-4 product-men mt-5">
-                                    <div class="men-pro-item simpleCart_shelfItem">
-                                        <div class="men-thumb-item text-center">
-                                            <img src="images/${produit.produitImg}" alt="">
-                                            <div class="men-cart-pro">
-                                                <div class="inner-men-cart-pro">
-                                                    <form action="<%=request.getContextPath()%>/singleProduitServlet" method="post">
-                                     
-                                                        <input type="hidden" name="idProduit" value="${produit.idProduit}" />
-                                                        <input type="submit" name="submit" value="Detail" class="link-product-add-cart" />
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info-product text-center border-top mt-4">
-                                            <h4 class="pt-1">
-                                                <a href="home.jsp">${produit.nom}</a>
-                                            </h4>
-                                            <div class="info-product-price my-2">
-                                                <span class="item_price">${produit.prix}</span>
-                                                <del>${produit.prix + 40}</del>
-                                            </div>
-                                            <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+
+	<!-- Single Page -->
+	<div class="banner-bootom-w3-agileits py-5">
+		<div class="container py-xl-4 py-lg-2">
+			<!-- tittle heading -->
+			<h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">
+				<span>S</span>ingle
+				<span>P</span>age</h3>
+			<!-- //tittle heading -->
+			<div class="row">
+				<c:forEach var="produit" items="${singleResultat}">
+				<div class="col-lg-5 col-md-8 single-right-left ">
+					<div class="grid images_3_of_2">
+						<div class="flexslider">
+							<ul class="slides">
+								<li data-thumb="images/${produit.produitImg}">
+									<div class="thumb-image">
+										<img src="images/${produit.produitImg}" data-imagezoom="true" class="img-fluid" alt=""> </div>
+								</li>	
+							</ul>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-7 single-right-left simpleCart_shelfItem">
+					<label>Nom : </label>
+					<h3 class="mb-3">${produit.nom}</h3>
+					<p class="mb-3">
+					<label>Prix : </label>
+						<span class="item_price"> EUR ${produit.prix}</span>
+						<label>Prix initial : </label>
+						<del class="mx-2 font-weight-light">${produit.prix + 39}</del>
+					</p>
+					<p class="mb-3">
+					<label>Description : </label>
+						<span class="item_price">${produit.description}</span>
+					</p>
+					<p class="mb-3">
+						<label>Caractéristiques : </label>
+						<span class="item_price">${produit.caracteristiques}</span>
+					</p>
+					<p class="mb-3">
+						<label>Quantité en stock : </label>
+						<span class="item_price">${produit.qteStock}</span>
+					</p>
+					<div class="occasion-cart">
+						<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
                                                 <form action="#" method="post">
                                                     <fieldset>
                                                         <input type="hidden" name="cmd" value="_cart" />
@@ -462,18 +476,20 @@
                                                     </fieldset>
                                                 </form>
                                             </div>
-                                          
-                                        </div>
-                                    </div>
-                                </div>
-                               </c:forEach>
-							</div>
-						</div>
+					</div>
+				</div>
+			 </c:forEach>
+			</div>
+		</div>
+	</div>
+	<!-- //Single Page -->
 
-		<!-- //footer fourth section (text) -->
-	</footer>
+	
+</footer>
 	<!-- //footer -->
+	<!-- copyright -->
 
+	<!-- //copyright -->
 
 	<!-- js-files -->
 	<!-- jquery -->
@@ -559,6 +575,10 @@
 		}
 	</script>
 	<!-- //password-script -->
+	
+	<!-- scroll seller -->
+	<script src="js/scroll.js"></script>
+	<!-- //scroll seller -->
 
 	<!-- smoothscroll -->
 	<script src="js/SmoothScroll.min.js"></script>
@@ -603,7 +623,6 @@
 	<script src="js/bootstrap.js"></script>
 	<!-- //for bootstrap working -->
 	<!-- //js-files -->
-
 </body>
 
 </html>

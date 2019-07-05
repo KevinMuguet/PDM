@@ -35,9 +35,9 @@ public class InscriptionServlet extends HttpServlet {
         String Password = "Test";
         String typeUser = "tester";
         
-        /*boolean connexionSuccess = user.hello();
+        int connexionSuccess = user.hello();
         
-        if(connexionSuccess){
+        /*if(connexionSuccess){
             RequestDispatcher rd = request.getRequestDispatcher("/connexion.jsp") ;
             rd.forward(request, response) ;
         }else{

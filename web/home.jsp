@@ -585,7 +585,7 @@
 														<input type="hidden" name="add" value="1" />
 														<input type="hidden" name="business" value=" " />
 														<input type="hidden" name="item_name" value="${produit.nom}" />
-														<input type="hidden" name="amount" value="${produit.prix + 1}" />
+														<input type="hidden" name="amount" value="${produit.prix}" />
 														<input type="hidden" name="discount_amount" value="1.00" />
 														<input type="hidden" name="currency_code" value="EUR" />
 														<input type="hidden" name="return" value=" " />
@@ -601,7 +601,7 @@
 							</div>
 						</div>
                                                 <div class="product-sec1 px-sm-4 px-3 py-sm-5  py-3 mb-4">
-							<h3 class="heading-tittle text-center font-italic">Réfrigérateur</h3>
+							<h3 class="heading-tittle text-center font-italic">Machine à lavé</h3>
 							<div class="row">
                                                             <c:forEach var="produit" items="${produitElectro}">
 								<div class="col-md-4 product-men mt-5">
@@ -620,7 +620,7 @@
 											</h4>
 											<div class="info-product-price my-2">
 												<span class="item_price">EUR ${produit.prix}</span>
-												<del>EUR ${produit.prix + 59}</del>
+												<del>EUR ${produit.prix + 60}</del>
 											</div>
 											<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
 												<form action="#" method="post">
@@ -629,7 +629,7 @@
 														<input type="hidden" name="add" value="1" />
 														<input type="hidden" name="business" value=" " />
 														<input type="hidden" name="item_name" value="${produit.nom}" />
-														<input type="hidden" name="amount" value="${produit.prix + 1}" />
+														<input type="hidden" name="amount" value="${produit.prix}" />
 														<input type="hidden" name="discount_amount" value="1.00" />
 														<input type="hidden" name="currency_code" value="EUR" />
 														<input type="hidden" name="return" value=" " />
@@ -673,8 +673,8 @@
 														<input type="hidden" name="add" value="1" />
 														<input type="hidden" name="business" value=" " />
 														<input type="hidden" name="item_name" value="${produit.nom}" />
-														<input type="hidden" name="amount" value="${produit.prix + 1}" />
-														<input type="hidden" name="discount_amount" value="1.00" />
+														<input type="hidden" name="amount" value="${produit.prix}" />
+														<input type="hidden" name="discount_amount" value="2.00" />
 														<input type="hidden" name="currency_code" value="EUR" />
 														<input type="hidden" name="return" value=" " />
 														<input type="hidden" name="cancel_return" value=" " />

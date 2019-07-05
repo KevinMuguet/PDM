@@ -6,6 +6,7 @@
 
 package WebService;
 
+import classBdd.Produit;
 import classBdd.Utilisateur;
 import java.util.List;
 import javax.annotation.Resource;
@@ -83,6 +84,17 @@ public class ProduitService {
     public List<classBdd.Produit> getProduitByName(@WebParam(name = "nom") String nom) {
         
         return em.createNamedQuery("Produit.findByNom").setParameter("nom", nom).getResultList();
+    
+    }
+    
+    @WebMethod(operationName = "GetProduitById")
+    public List<Produit> getProduitById(@WebParam(name = "id") Integer id) {
+        List<Produit> prod = null;
+        try{ 
+            
+            prod = (List<Produit>) em.createNamedQuery("Produit.findByIdProduit").setParameter("idProduit", id).getResultList();
+        }catch(Exception e){}
+        return prod;
     
     }
  
